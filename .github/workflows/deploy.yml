@@ -39,6 +39,8 @@ jobs:
 
       - name: Build Production PWA Artifact
         run: npm run build
+        env:
+          BASE_PATH: '/pythagoras-pass/'
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3

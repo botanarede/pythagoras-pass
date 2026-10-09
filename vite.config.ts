@@ -5,7 +5,10 @@ import {defineConfig} from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
+  const base = process.env.BASE_PATH || (process.env.GITHUB_REPOSITORY ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/` : '/');
+
   return {
+    base,
     plugins: [
       react(),
       tailwindcss(),
@@ -13,30 +16,30 @@ export default defineConfig(() => {
         registerType: 'autoUpdate',
         includeAssets: ['apple-touch-icon.png', 'icon.svg', 'pwa-192x192.png', 'pwa-512x512.png'],
         manifest: {
-          id: '/',
+          id: base,
           name: 'Lançamento de Pitágoras',
           short_name: 'Pitágoras',
           description: 'Jogo educativo de futebol da RALECAB GAMES ensinando o Teorema de Pitágoras através de passes precisos.',
           theme_color: '#020617',
           background_color: '#020617',
           display: 'standalone',
-          start_url: '/',
-          scope: '/',
+          start_url: base,
+          scope: base,
           icons: [
             {
-              src: '/pwa-192x192.png',
+              src: `${base}pwa-192x192.png`,
               sizes: '192x192',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-512x512.png',
+              src: `${base}pwa-512x512.png`,
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-maskable-512x512.png',
+              src: `${base}pwa-maskable-512x512.png`,
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',
