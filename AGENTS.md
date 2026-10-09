@@ -6,7 +6,7 @@ This project is the rebuilt **Lançamento de Pitágoras** (Pythagoras Pass) by R
 ## Source of Truth Links
 - Product Requirements & Invariants: [spec/PRODUCT.md](spec/PRODUCT.md)
 - Current Checkpoint & Roadmap: [spec/STATE.md](spec/STATE.md)
-- Active Change: [spec/changes/001-playable-foundation/](spec/changes/001-playable-foundation/)
+- Active Change: [spec/changes/006-mobile-first-responsive-shell/](spec/changes/006-mobile-first-responsive-shell/)
 
 ## Key Operating Guidelines
 1. **Spec-Driven & Test-First**: Read active spec and requirements before modifying code. Write failing tests before implementation.
