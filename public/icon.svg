@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="pitchGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a" />
+      <stop offset="100%" stop-color="#15803d" />
+    </linearGradient>
+    <linearGradient id="ballGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded card -->
+  <rect width="512" height="512" rx="108" fill="url(#bgGrad)" />
+
+  <!-- Inner Football Pitch Surface -->
+  <rect x="56" y="56" width="400" height="400" rx="48" fill="url(#pitchGrad)" stroke="#22c55e" stroke-width="4" />
+  
+  <!-- Pitch Markings -->
+  <circle cx="256" cy="256" r="64" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="6" />
+  <line x1="56" y1="256" x2="456" y2="256" stroke="rgba(255,255,255,0.4)" stroke-width="6" />
+  
+  <!-- Right Triangle: P to Q -->
+  <!-- Passer P at (140, 360), Corner R at (372, 360), Attacker Q at (372, 140) -->
+  <!-- Leg A: Horizontal -->
+  <line x1="140" y1="360" x2="372" y2="360" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" />
+  <!-- Leg B: Vertical -->
+  <line x1="372" y1="360" x2="372" y2="140" stroke="#06b6d4" stroke-width="12" stroke-linecap="round" />
+  <!-- Hypotenuse C: Diagonal dashed -->
+  <line x1="140" y1="360" x2="372" y2="140" stroke="#a855f7" stroke-width="10" stroke-dasharray="16 12" stroke-linecap="round" />
+  <!-- Right Angle Symbol -->
+  <polyline points="336,360 336,324 372,324" fill="none" stroke="#ffffff" stroke-width="6" />
+
+  <!-- Soccer Ball with flight glow -->
+  <circle cx="220" cy="280" r="32" fill="url(#ballGrad)" stroke="#0f172a" stroke-width="4" />
+  <!-- Hexagon pattern on ball -->
+  <polygon points="220,268 230,275 226,287 214,287 210,275" fill="#0f172a" />
+
+  <!-- Branding Badge "P" at top left -->
+  <rect x="76" y="76" width="60" height="60" rx="16" fill="#2563eb" stroke="#60a5fa" stroke-width="3" />
+  <text x="106" y="118" font-family="system-ui, sans-serif" font-weight="900" font-size="38" fill="#ffffff" text-anchor="middle">P</text>
+</svg>
