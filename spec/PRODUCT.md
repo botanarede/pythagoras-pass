@@ -43,3 +43,8 @@
 - **SHELL-02**: Dynamic Viewport (`100dvh`) and safe area insets (`safe-area-inset-top`, `safe-area-inset-bottom`) for seamless iOS Safari and Android Chrome integration.
 - **SHELL-03**: Absolute non-obscured pitch invariant: no controls, panels, or feedback cards may ever overlap the field, players, goal, or right-triangle annotations.
 - **SHELL-04**: Mobile touch target ergonomics ($\ge 44\text{px}$) across all action buttons and numeric stepper controls.
+
+### CAP-QA: End-to-End Verification & Gated Release Invariants
+- **QA-01**: Browser Engine Coverage. Automated integration tests must execute on Chromium and WebKit engines in both desktop and mobile emulation viewports.
+- **QA-02**: Zero-Leak & Unobscured Invariant Verification. Automated browser checks must programmatically assert that the formula panel never leaks answers when hidden and that controls never overlap the pitch canvas.
+- **QA-03**: Gated Release Integrity & Identical Artifact. Deployments to GitHub Pages are strictly conditioned on successful branch verification, pull request status checks, explicit maintainer merge approval, and full integrated post-merge E2E validation. The deployed package must be identically the verified artifact with zero post-test recompilation. Any failure aborts deployment and preserves the existing live release.

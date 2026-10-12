@@ -1,9 +1,9 @@
 # Project State & Delivery Roadmap
 
 ## Current Status
-- **Active Slice**: `006-mobile-first-responsive-shell`
-- **Status**: COMPLETED & VERIFIED (58/58 tests green, Ralph loop full gate passed; remote CI / browser E2E / device review explicitly PENDING)
-- **Latest Checkpoint**: Slice 006 completed and verified. Mobile-first stage shell (`max-w-[460px]`), `100dvh`, iOS/Android safe area insets, responsive PitchCanvas with non-obscured pitch guarantee, and $\ge 44\text{px}$ touch targets across all mobile and desktop browsers.
+- **Active Slice**: `007-e2e-ci-release`
+- **Status**: SPEC REVISED (8 pendências sanadas: validação de cobertura estruturada no gate, política anti-flaky, determismo visual sem condicionais, matriz alinhada, bootstrap de baselines, alinhamento local de base path e diagnóstico epistemológico dos arquivos; aguardando aprovação do mantenedor e comando `go 007`)
+- **Latest Checkpoint**: Slice 006 concluído e verificado (58/58 testes unitários/geométricos históricos verdes). Slice 007 com especificação canônica revisada, critérios verificáveis e zero implementações não autorizadas.
 
 ## Roadmap
 | Slice | Name | Status | Summary |
@@ -14,4 +14,5 @@
 | 003 | I18n, accessibility & visual baselines | COMPLETED | Complete pt-BR, en, es language switching, screen reader live announcements, WCAG 2.1 AA visible focus, zero answer leak in hidden mode. |
 | 004 | PWA & GitHub Actions Cloud Release | COMPLETED | Manifest, service worker offline cache (15 entries precached), in-app install button, offline mode indicator, GitHub Pages deploy workflow. |
 | 006 | Mobile-first universal responsive shell | COMPLETED | Mobile experience on desktop (centered smartphone stage) & mobile (iOS/Android 100dvh & safe areas); pitch scene never obscured; >= 44px touch targets. |
+| 007 | E2E Playwright, CI Branch Quality Gate & Release | SPEC REVISED | Testes E2E (Chromium/WebKit), governança branch/PR, validação integrada pré-deploy, publicação sem recompilação, Quality Gate bloqueante no GitHub Actions. |
 | 005 | Make coordination & documentation | POSTPONED | Cloud webhook integration, final README hero, and delivery review (deferred by user instruction). |
