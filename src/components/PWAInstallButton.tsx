@@ -84,32 +84,31 @@ export const PWAInstallButton: React.FC<PWAInstallButtonProps> = ({ language }) 
         </button>
 
         {showIOSGuide && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-            <div className="w-full max-w-sm rounded-2xl bg-slate-900 border border-slate-700 p-6 shadow-2xl text-white">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-base font-bold text-amber-400 flex items-center gap-2">
-                  <Share2 size={18} /> {labels.iosTitle}
-                </h3>
-                <button
-                  type="button"
-                  onClick={() => setShowIOSGuide(false)}
-                  className="p-1 rounded-lg text-slate-400 hover:text-white"
-                >
-                  <X size={18} />
-                </button>
-              </div>
-              <p className="text-xs text-slate-300 leading-relaxed space-y-1">
-                <span>{labels.iosStep1} <strong>{labels.iosShare}</strong> {labels.iosStep2}</span><br />
-                <span>{labels.iosStep3} <strong>{labels.iosAdd}</strong>.</span>
-              </p>
+          <div data-testid="pwa-ios-guide" className="w-full mt-2 rounded-2xl bg-slate-900 border border-slate-700 p-4 shadow-2xl text-white">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+                <Share2 size={15} /> {labels.iosTitle}
+              </h3>
               <button
                 type="button"
                 onClick={() => setShowIOSGuide(false)}
-                className="mt-4 w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-white border border-slate-700"
+                className="p-1 rounded-lg text-slate-400 hover:text-white cursor-pointer"
+                aria-label={labels.close}
               >
-                {labels.close}
+                <X size={15} />
               </button>
             </div>
+            <p className="text-[11px] text-slate-300 leading-relaxed">
+              <span>{labels.iosStep1} <strong>{labels.iosShare}</strong> {labels.iosStep2}</span><br />
+              <span>{labels.iosStep3} <strong>{labels.iosAdd}</strong>.</span>
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowIOSGuide(false)}
+              className="mt-3 w-full py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-white border border-slate-700 cursor-pointer"
+            >
+              {labels.close}
+            </button>
           </div>
         )}
       </>

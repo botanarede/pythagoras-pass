@@ -2,9 +2,9 @@
 
 ## Current Status
 - **Active Slice**: `007-e2e-ci-release`
-- **Status**: SPEC REVISED — requisitos, design, tarefas e verificação atualizados com correções de rastreabilidade e alinhamento ao código real. Aguardando aprovação do mantenedor e comando `go 007` para início da implementação.
-- **Latest Checkpoint**: Slice 006 concluído e verificado (58/58 testes unitários/geométricos históricos verdes). Slice 007 com especificação canônica revisada e corrigida (alinhada ao código-fonte real do repositório), critérios verificáveis e zero implementações não autorizadas.
-- **Verification Boundary**: revisão documental não é aprovação de implementação, E2E, baselines ou hardware. Guia DOM iOS atual encobre o canvas; correção test-first prevista no 007. Main sem proteção (`protected:false`, consulta 2026-10-12); implantação/proteção/guardas permanecem PENDING. Esta sincronização documental em main é exceção solicitada com `[skip ci]`, sem deploy.
+- **Status**: IMPLEMENTATION IN PROGRESS (Fase 2, 3 e 4 de infraestrutura, workflows e testes executadas; 70 testes Vitest verdes incluindo o validador do gate ci-gate; suíte Playwright e reparo de layout implementados; E2E em CI e baselines permanecem PENDING de execução/aprovação)
+- **Latest Checkpoint**: Infraestrutura Playwright com 10 projetos configurada (`playwright.config.ts`), validador estruturado `scripts/validate-ci-gate.mjs` criado e testado (12 cenários verdes), 70/70 testes Vitest verdes, guia iOS reparado sem sobreposição ao canvas, workflows `verify.yml` e `deploy.yml` atualizados.
+- **Verification Boundary**: Execução E2E em CI, homologação física de hardware e baselines visuais permanecem rigorosamente PENDING. Deploy bloqueado até abertura de PR e aprovação formal do mantenedor. Slice 007 não deve ser marcado como COMPLETED até a resolução de todas as pendências.
 
 ## Roadmap
 | Slice | Name | Status | Summary |

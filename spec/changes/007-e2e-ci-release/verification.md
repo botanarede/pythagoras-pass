@@ -10,18 +10,17 @@
 | **LAYOUT-01** | LAYOUT-01 | dez projetos da matriz | Playwright | todas as chaves projeto/ID/cenário, caixas atuais, composição e intersecção zero | PENDING |
 | **VIS-01** | VIS-01 | dez projetos da matriz | Playwright | sete cenários, canvas/composição, tolerâncias e baselines aprovadas por SHA/path/digest | PENDING (baselines) |
 | **GATE-01..03** | todos acima | — | `ci-gate` job | validador `exit(0)`, zero flaky, zero unexpected | PENDING |
-| **GATE-TEST** | casos do design seção 2 | — | Vitest | `ciGateValidator.test.ts`, sem omitir fixtures negativas | PENDING |
+| **GATE-TEST** | casos do design seção 2 | — | Vitest | `ciGateValidator.test.ts` (12 testes simulados verdes) | PASSED |
 | **FLOW-04** | RELEASE-A/B | — | GitHub Actions | SHA/artifact/digest, guarda remota, concorrência comum, A/B/stale/falha consulta/avanço após guarda | PENDING |
-| **VIS-01 / REPAIR-01** | guia DOM PWA | todos projetos, fixture UA iPhone | Playwright | teste primeiro falha; painel futuro não encobre campo | PENDING (defeito atual confirmado) |
+| **VIS-01 / REPAIR-01** | guia DOM PWA | todos projetos, fixture UA iPhone | Playwright | teste primeiro falha; painel futuro não encobre campo | PENDING (reparo de código realizado, aguarda execução E2E) |
 | **PHYS-01** | — | — | Dispositivo físico | iOS Safari + Android Chrome reais | PENDING |
 | **A11Y-AUDIO-01** | — | — | Dispositivo físico | VoiceOver + TalkBack | PENDING |
 
 ## 2. Status Truthfulness
 
-- **PASSED** = executado e verde com evidência. Hoje: apenas 58 testes Vitest (Slice 006 histórico)
-- **PENDING** = não executado, não verificado, ou depende de baseline/bootstrap externo
-- E2E, gate, baselines, dispositivos físicos: todos PENDING
-- Vitest não comprova navegador real; emulação não comprova hardware; DOM aria-live não comprova áudio
+- **PASSED** = executado e verde com evidência comprovada: 70 testes Vitest (58 de geometria/matemática/lifecycle + 12 do validador `ciGateValidator.test.ts`).
+- **PENDING** = não executado, não verificado no CI ou depende de baseline/bootstrap externo: E2E Playwright em navegadores reais (Chromium/WebKit), gate integrado em CI, baselines visuais e dispositivos físicos.
+- Vitest não comprova navegador real; emulação não comprova hardware; DOM aria-live não comprova áudio.
 
 ## 3. Protocolos de Execução
 

@@ -20,6 +20,7 @@ export const OfflineIndicator: React.FC<OfflineIndicatorProps> = ({ language }) 
 
   return (
     <aside
+      data-testid="offline-indicator"
       aria-label="Offline Mode"
       className="fixed bottom-4 left-4 z-40 flex items-center gap-2 rounded-xl bg-amber-500/95 border border-amber-400 text-slate-950 px-3.5 py-2 text-xs font-black shadow-2xl backdrop-blur select-none animate-bounce"
     >

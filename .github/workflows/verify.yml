@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  verify:
-    name: Lint, Test, and Build
+  lint-and-unit:
+    name: Lint & Unit Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -29,5 +29,85 @@ jobs:
       - name: Run Vitest Unit & Geometry Suite
         run: npm test
 
+  build-and-e2e:
+    name: Build & E2E Suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium webkit
+
       - name: Build Production Artifact
         run: npm run build
+        env:
+          BASE_PATH: '/pythagoras-pass/'
+
+      - name: Run Playwright E2E Tests
+        run: npx playwright test
+        env:
+          CI: 'true'
+          BASE_PATH: '/pythagoras-pass/'
+
+      - name: Upload E2E Structured Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-results
+          path: e2e-results/
+          retention-days: 7
+
+      - name: Upload Playwright HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Upload Test Traces & Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 7
+
+  ci-gate:
+    name: ci-gate
+    runs-on: ubuntu-latest
+    needs: [lint-and-unit, build-and-e2e]
+    if: always()
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Download E2E Results
+        uses: actions/download-artifact@v4
+        with:
+          name: e2e-results
+          path: e2e-results
+        continue-on-error: true
+
+      - name: Run Quality Gate Aggregator
+        run: |
+          node scripts/validate-ci-gate.mjs \
+            --context ci \
+            --lint-and-unit "${{ needs.lint-and-unit.result }}" \
+            --build-and-e2e "${{ needs.build-and-e2e.result }}"
