@@ -2,8 +2,9 @@
 
 ## Current Status
 - **Active Slice**: `007-e2e-ci-release`
-- **Status**: SPEC REVISED (8 pendências sanadas: validação de cobertura estruturada no gate, política anti-flaky, determismo visual sem condicionais, matriz alinhada, bootstrap de baselines, alinhamento local de base path e diagnóstico epistemológico dos arquivos; aguardando aprovação do mantenedor e comando `go 007`)
-- **Latest Checkpoint**: Slice 006 concluído e verificado (58/58 testes unitários/geométricos históricos verdes). Slice 007 com especificação canônica revisada, critérios verificáveis e zero implementações não autorizadas.
+- **Status**: SPEC REVISED — requisitos, design, tarefas e verificação atualizados com correções de rastreabilidade e alinhamento ao código real. Aguardando aprovação do mantenedor e comando `go 007` para início da implementação.
+- **Latest Checkpoint**: Slice 006 concluído e verificado (58/58 testes unitários/geométricos históricos verdes). Slice 007 com especificação canônica revisada e corrigida (alinhada ao código-fonte real do repositório), critérios verificáveis e zero implementações não autorizadas.
+- **Verification Boundary**: revisão documental não é aprovação de implementação, E2E, baselines ou hardware. Guia DOM iOS atual encobre o canvas; correção test-first prevista no 007. Main sem proteção (`protected:false`, consulta 2026-10-12); implantação/proteção/guardas permanecem PENDING. Esta sincronização documental em main é exceção solicitada com `[skip ci]`, sem deploy.
 
 ## Roadmap
 | Slice | Name | Status | Summary |

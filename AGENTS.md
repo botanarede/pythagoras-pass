@@ -9,7 +9,7 @@ This project is the rebuilt **Lançamento de Pitágoras** (Pythagoras Pass) by R
 - Active Change: [spec/changes/007-e2e-ci-release/](spec/changes/007-e2e-ci-release/)
 
 ## Key Operating Guidelines
-1. **Regra Canônica SPEC-First Obrigatória**:
+1. **Regra Canônica SPEC-First Obrigatória (aplica-se também a subagentes)**:
    - A primeira rodada de qualquer nova mudança deve **SEMPRE** criar ou atualizar a especificação canônica antes de qualquer implementação de código.
    - Cada fatia deve conter obrigatoriamente `requirements.md`, `design.md`, `tasks.md` e `verification.md`, mantendo rastreabilidade estrita entre requisito, tarefa, teste e evidência.
    - Todos os agentes e subagentes devem respeitar rigorosamente a separação entre especificação, aprovação humana e implementação.

@@ -34,7 +34,7 @@
 
 ### CAP-PWA: Offline & Installation
 - **PWA-01**: Web App Manifest (`id`, `name`, `short_name <= 12`, `standalone`, 192/512/maskable icons) and Service Worker via `vite-plugin-pwa` precaching all game assets for offline play.
-- **PWA-02**: In-app install button (`PWAInstallButton`) in Header with automatic standalone suppression and iOS Safari guided modal.
+- **PWA-02**: In-app install button (`PWAInstallButton`) in Header with automatic standalone suppression and iOS guidance. Guidance must not obscure the pitch; Slice 007 specifies a future non-overlapping panel replacing the currently obscuring React overlay, without changing native installation mechanics.
 - **PWA-03**: Non-intrusive offline connectivity notification banner (`OfflineIndicator`).
 - **PWA-04**: GitHub Actions static deployment workflow (`.github/workflows/deploy.yml`).
 
@@ -46,5 +46,5 @@
 
 ### CAP-QA: End-to-End Verification & Gated Release Invariants
 - **QA-01**: Browser Engine Coverage. Automated integration tests must execute on Chromium and WebKit engines in both desktop and mobile emulation viewports.
-- **QA-02**: Zero-Leak & Unobscured Invariant Verification. Automated browser checks must programmatically assert that the formula panel never leaks answers when hidden and that controls never overlap the pitch canvas.
-- **QA-03**: Gated Release Integrity & Identical Artifact. Deployments to GitHub Pages are strictly conditioned on successful branch verification, pull request status checks, explicit maintainer merge approval, and full integrated post-merge E2E validation. The deployed package must be identically the verified artifact with zero post-test recompilation. Any failure aborts deployment and preserves the existing live release.
+- **QA-02**: Zero-Leak & Unobscured Invariant Verification. Hidden help must not leak calculated answers; controls, formula, feedback, DOM installation guidance and offline indicators must not overlap the pitch. All required project/scenario combinations in Slice 007 must be verified with current geometry and scene composition, including compact, landscape and wide profiles.
+- **QA-03**: Gated Release Integrity & Identical Artifact. Deployments to GitHub Pages are strictly conditioned on: (1) successful branch verification via PR status checks, (2) manual merge by maintainer after all required checks pass (no formal own-review required by GitHub; solo maintainer clicks Merge when checks are green), (3) full integrated post-merge E2E validation on main, and (4) guard verification that the artifact SHA matches the remote main ref at deploy time. The deployed package must be identically the verified artifact with zero post-test recompilation. Any failure aborts deployment and preserves the existing live release.
